@@ -1,0 +1,10 @@
+<% @companies.each do |company| %>
+<h1>Detalhes de <%= company.name %></h1>
+
+<div class="p">Nome: <%= company.name %></div>
+<div>Email: <%= company.email %></div>
+<div>Telefone: <%= company.phone %></div>
+<div>Endereço: <%= company.street_address %> - Nº <%= company.number_address %></div>
+<div>Bairro: <%= company.neighborhood %></div>
+<div>Cidade: <%= company.city %></div>
+<% end %>

@@ -1,0 +1,53 @@
+<%= form_for [@company] do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(@company.errors.count, "error") %> *Os campos são obrigatórios!</h2>
+
+    <ul>
+      <% @company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <div class="field">
+    <label >Nome:</label>
+    <%= f.text_field :name, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <label >Email:</label>
+    <%= f.text_field :email, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <label >Telefone:</label>
+    <%= f.text_field :phone, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <label >Endereço:</label>
+    <%= f.text_field :street_address, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <label >Número:</label>
+    <%= f.text_field :number_address, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <label >Cidade:</label>
+    <%= f.text_field :city, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <label >Bairro:</label>
+    <%= f.text_field :neighborhood, class:"form-control"%>
+  </div>
+
+<p>
+  <button type="submit">Salvar</button>
+</p>
+
+<% end %>
