@@ -1,6 +1,13 @@
 require 'rails_helper'
 RSpec.describe CompaniesController, type: :controller do
-
+  describe "listing companies on index" do
+    it "returns all companies" do
+      company1 = Company.create({name: "Empresa 5", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"}) 
+      company2 = Company.create({name: "Empresa 5", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"}) 
+      get :index
+      expect(assigns(:companies)).to match_array([company1, company2])
+    end
+  end    
   describe "show a company" do
     it "return same company by id" do
       company = Company.create({name: "Empresa 5", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"})
