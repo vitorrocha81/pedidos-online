@@ -25,4 +25,12 @@ RSpec.describe CompaniesController, type: :controller do
       expect(response).to redirect_to action: :show, id: assigns(:company).id 
     end
   end
+
+  describe "testing companies controller" do
+    it "#update" do
+      company = Company.create({name: "Empresa 5", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"})
+      put :update, id: company.id, company: {name: "Empresa 5 Banana", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"}
+      expect(Company.find(company.id).name).to eq "Empresa 5 Banana"
+    end
+  end
 end
