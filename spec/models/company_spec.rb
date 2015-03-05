@@ -1,7 +1,7 @@
 require 'rails_helper'
  
 RSpec.describe Company, type: :model do
-let(:company_params) {{:name => "Empresa 1", :email => "eu@eu.com", :phone => "11992094490", :street_address => "Rua de casa", :number_address => "86", :city => "sao paulo", :neighborhood => "vila prudente"}}
+let(:company_params) {{:name => "Empresa 1", :email => "eu@eu.com", cnpj: "08239505000115", :phone => "11992094490", :street_address => "Rua de casa", :number_address => "86", :city => "sao paulo", :neighborhood => "vila prudente"}}
 
   describe "has required fields" do
     it "company saved" do
