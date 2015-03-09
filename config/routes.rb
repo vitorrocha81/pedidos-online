@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
-  get 'products/index'
-
-  get 'products/new'
-
-  get 'products/edit'
-
-  get 'products/show'
-
   devise_for :company_admins
   resources :companies
-
+  resources :products
+ 
 root "companies#index"
   
   # The priority is based upon order of creation: first created -> highest priority.
