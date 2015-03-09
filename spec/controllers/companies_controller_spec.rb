@@ -21,19 +21,21 @@ RSpec.describe CompaniesController, type: :controller do
   describe "testing create" do
     it "company create" do
       @request.env["devise.mapping"] = Devise.mappings[:company_admin]
-      get :new
-      @company_admin = CompanyAdmin.create({email: "eu@eu.com", encrypted_password:"12345678"})
+      @company_admin = CompanyAdmin.create({email: "eu@eu.com", password:"12345678"})
       sign_in :company_admin, @company_admin
       post :create, company: {name: "Empresa Banana", email: "eu@eu.com", cnpj: "08239505000115", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"}
-      expect(response).to redirect_to action: :show, id: assigns(:company).id 
+      expect(response).to redirect_to Company.last
       expect(Company.last.name).to eq "Empresa Banana"
     end
   end
 
   describe "testing companies controller" do
     it "#update" do
-      company = Company.create({name: "Empresa 5", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"})
-      put :update, id: company.id, company: {name: "Empresa 5 Banana", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"}
+      @request.env["devise.mapping"] = Devise.mappings[:company_admin]
+      @company_admin = CompanyAdmin.create({email: "eu@eu.com", password:"12345678"})
+      sign_in :company_admin, @company_admin
+      company = Company.create({name: "Empresa 5", email: "eu@eu.com", cnpj: "08239505000115", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"})
+      put :update, id: company.id, company: {name: "Empresa 5 Banana", cnpj: "08239505000115", email: "eu@eu.com", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"}
       expect(Company.find(company.id).name).to eq "Empresa 5 Banana"
     end
   end
