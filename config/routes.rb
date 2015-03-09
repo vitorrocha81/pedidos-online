@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/new'
+
+  get 'products/edit'
+
+  get 'products/show'
+
   devise_for :company_admins
   resources :companies
 
