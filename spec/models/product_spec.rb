@@ -9,5 +9,10 @@ let(:product_params) {{:title => "Produto 1", description: "descrição um, dois
       product = Product.create(product_params)
       expect(product.persisted?).to eq(true)
     end
+    it "dont save a invalid product" do
+      product = Product.create()
+      expect(product.persisted?).to eq(false) 
+    end
   end
+
 end
