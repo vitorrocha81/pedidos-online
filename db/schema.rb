@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310005632) do
+ActiveRecord::Schema.define(version: 20150311004731) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 20150310005632) do
     t.string   "product_img_content_type"
     t.integer  "product_img_file_size"
     t.datetime "product_img_updated_at"
+    t.integer  "company_id"
   end
+
+  add_index "products", ["company_id"], name: "index_products_on_company_id"
 
 end
