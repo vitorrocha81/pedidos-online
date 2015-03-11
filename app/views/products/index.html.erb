@@ -1,4 +1,5 @@
 <% @products.each do |product| %>
+<%= image_tag product.product_img.url(:medium) %>
 <h3><%= product.title %> </h3>
 <p><%= number_to_currency(product.price, unit: "R$ ") %>
 <p><strong>Descrição:</strong> <%= product.description %> </p>
