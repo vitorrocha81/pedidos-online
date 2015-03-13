@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311004731) do
+ActiveRecord::Schema.define(version: 20150313004949) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 20150311004731) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
 
+  add_index "company_admins", ["company_id"], name: "index_company_admins_on_company_id"
   add_index "company_admins", ["email"], name: "index_company_admins_on_email", unique: true
   add_index "company_admins", ["reset_password_token"], name: "index_company_admins_on_reset_password_token", unique: true
 
@@ -58,4 +60,5 @@ ActiveRecord::Schema.define(version: 20150311004731) do
   end
 
   add_index "products", ["company_id"], name: "index_products_on_company_id"
+
 end
