@@ -58,5 +58,4 @@ ActiveRecord::Schema.define(version: 20150311004731) do
   end
 
   add_index "products", ["company_id"], name: "index_products_on_company_id"
-
 end

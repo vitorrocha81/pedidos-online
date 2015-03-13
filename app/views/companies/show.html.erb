@@ -7,3 +7,19 @@
 <div>Endereço: <%= @company.street_address %> - Nº <%= @company.number_address %></div>
 <div>Bairro: <%= @company.neighborhood %></div>
 <div>Cidade: <%= @company.city %></div>
+
+
+<h3>Produtos de <%= @company.name %></h3>
+  <% @company.products.each do |p| %>
+    <ul>
+      <li> <%= image_tag p.product_img.url(:medium) %></li>
+      <li>Nome: <%= p.title %></li>
+      <li>Preço: <%= p.price %></li>
+      <li>Descrição:
+        <% p.description.split("\n").each do |description| %></li>
+        <li><%= description %></li>
+        <% end %>
+    </li>
+    </ul>
+    <hr>
+  <% end %>
