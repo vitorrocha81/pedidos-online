@@ -6,13 +6,12 @@ let(:product_params) {{:title => "Produto 1", description: "descrição um, dois
 
   describe "has required fields" do
     it "save a valid product" do
-      product = Product.create(product_params)
-      expect(product.persisted?).to eq(true)
+      product = Product.new(product_params)
+     expect(product).to be_valid
     end
     it "dont save a invalid product" do
-      product = Product.create()
-      expect(product.persisted?).to eq(false) 
+     product = Product.new()
+     expect(product).to_not be_valid
     end
   end
-
 end

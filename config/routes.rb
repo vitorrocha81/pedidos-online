@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :company_scores
+
   devise_for :company_admins
   resources :companies
   resources :products
