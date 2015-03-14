@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_company_admin!, only: [:create, :new, :edit, :update]
-
+  before_action :check_company_from_current_admin, only: [:edit, :update]
+  
   def index
     @companies = Company.all
   end
@@ -39,7 +40,15 @@ class CompaniesController < ApplicationController
   def destroy
   end
 
+private
   def company_params
     params.require(:company).permit(:name, :email, :cnpj, :phone, :street_address, :number_address, :city, :neighborhood)    
+  end
+  
+  def check_company_from_current_admin
+    company = Company.find(params[:id])
+    if company != current_company_admin.company
+    redirect_to root_path
+    end 
   end
 end
