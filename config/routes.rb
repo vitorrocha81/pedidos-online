@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
   devise_for :company_admins
-  resources :companies
+  resources :companies do 
+    get 'company_ratings/new'
+    post 'company_ratings/create'
+  end
   resources :products
  
 root "companies#index"
