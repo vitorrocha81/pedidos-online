@@ -48,9 +48,16 @@ ActiveRecord::Schema.define(version: 20150317225824) do
 
   create_table "product_categories", force: :cascade do |t|
     t.string   "name"
+  end
+
+  create_table "company_ratings", force: :cascade do |t|
+    t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "company_id"
   end
+
+  add_index "company_ratings", ["company_id"], name: "index_company_ratings_on_company_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "title"

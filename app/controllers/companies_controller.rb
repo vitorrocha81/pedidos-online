@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
   before_action :check_company_from_current_admin, only: [:edit, :update]
   
   def index
-    @companies = Company.all
+    @companies = Company.all.order(created_at: :desc).limit(3)
   end
 
   def show

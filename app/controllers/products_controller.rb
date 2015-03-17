@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
  before_action :authenticate_company_admin!, only: [:create, :new, :edit, :update]
 
   def index
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc).limit(10)
   end
 
   def show
