@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :company_admins
   resources :companies do 
     get 'company_ratings/new'
-    post 'company_ratings/create'
+    post 'company_ratings/create', as: :create_rating
   end
   resources :products
  

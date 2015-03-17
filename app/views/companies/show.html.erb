@@ -7,8 +7,7 @@
 <div>Endereço: <%= @company.street_address %> - Nº <%= @company.number_address %></div>
 <div>Bairro: <%= @company.neighborhood %></div>
 <div>Cidade: <%= @company.city %></div>
-
-
+<div>Avaliação Média:  <%= @company.total_rating %></div>
 <h3>Produtos de <%= @company.name %></h3>
   <% @company.products.each do |p| %>
     <ul>
