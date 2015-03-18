@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'order_itens/new'
+
+  get 'order_itens/create'
+
   get 'orders/index'
 
   get 'orders/new'
