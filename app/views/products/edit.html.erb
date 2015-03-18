@@ -27,6 +27,11 @@
 
   <%= f.file_field :product_img %>
   
+  <div class="field">
+    <%= f.label "Categoria" %>
+    <%= f.collection_select :product_category_id, ProductCategory.all, :id, :name  %>
+  </div>
+
   <p>
     <button type="submit">Salvar</button>
   </p>
