@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'orders/index'
+
+  get 'orders/new'
+
+  get 'orders/create'
+
+  get 'orders/show'
+
   devise_for :company_admins
   resources :companies do 
     get 'company_ratings/new'
