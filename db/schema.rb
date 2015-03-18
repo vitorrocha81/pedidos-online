@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318004340) do
+ActiveRecord::Schema.define(version: 20150318005403) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -55,12 +55,6 @@ ActiveRecord::Schema.define(version: 20150318004340) do
 
   add_index "company_ratings", ["company_id"], name: "index_company_ratings_on_company_id"
 
-  create_table "company_scores", force: :cascade do |t|
-    t.integer  "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "order_items", force: :cascade do |t|
     t.integer  "quantyty"
     t.integer  "item_value"
@@ -82,6 +76,12 @@ ActiveRecord::Schema.define(version: 20150318004340) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.decimal  "price",                    precision: 8, scale: 2
@@ -93,8 +93,10 @@ ActiveRecord::Schema.define(version: 20150318004340) do
     t.integer  "product_img_file_size"
     t.datetime "product_img_updated_at"
     t.integer  "company_id"
+    t.integer  "product_category_id"
   end
 
   add_index "products", ["company_id"], name: "index_products_on_company_id"
+  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id"
 
 end
