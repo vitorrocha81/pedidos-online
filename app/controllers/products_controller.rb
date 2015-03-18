@@ -8,19 +8,19 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-  
+
   def new
     @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
+    @product.company = current_company_admin.company
     if @product.save
       redirect_to @product
     else
-      render 'new'  
+      render 'new'
     end
-    
   end
 
   def edit
@@ -32,12 +32,12 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product
     else
-      render 'new'  
-    end    
+      render 'new'
+    end
   end
 
 private
   def product_params
-   params.require(:product).permit(:title, :price, :description, :company_id, :product_img)  
+    params.require(:product).permit(:title, :price, :description, :product_img, :product_category_id)
   end
 end
