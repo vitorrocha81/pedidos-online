@@ -1,0 +1,6 @@
+<% unless product.product_img.nil? %>
+  <div> <%= image_tag product.product_img.url(:medium) %></div>
+<% end %>
+<div><h2><%= product.title %><h2></div>
+<div><p><%= product.price %></p></div>
+<div><p><%= product.description %></p></div>
