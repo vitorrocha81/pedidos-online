@@ -35,6 +35,8 @@ RSpec.describe CompaniesController, type: :controller do
       @company_admin = CompanyAdmin.create!({email: "vitor@eu.com", password:"12345678"})
       sign_in :company_admin, @company_admin
       company = Company.create({name: "Empresa 5", email: "enoresa@empresa.com", cnpj: "08239505000115", phone: "1141130853", street_address: "rua gloria", number_address: "86", city: "sao paulo", neighborhood: "vila prudente"})
+      company.company_admin = @company_admin
+      company.save!
       put :update, id: company.id, company: {name: "Empresa 5 Atualizada"}
       expect(Company.find(company.id).name).to eq "Empresa 5 Atualizada"
     end
