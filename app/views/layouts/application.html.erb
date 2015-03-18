@@ -7,12 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if company_admin_signed_in? %>
-  <p>Olá: <%= current_company_admin.email %> || <%= link_to "Sair", destroy_company_admin_session_path, method: :delete %> </p>
-<% else %>
-<%= link_to "Logar", company_admin_session_path %>     
-<% end %>
-<%= yield %>
+<div id="menu" class="navbar navbar-default navbar-static-top">
 
+<% if company_admin_signed_in? %>
+  <div>Olá: <%= current_company_admin.email %> || <%= link_to "Sair", destroy_company_admin_session_path, method: :delete %>
+   | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Minha Empresa', current_company_admin.company %> | <%= link_to 'Cadastrar Produto', new_product_path %></div>
+<% else %>
+<div> <%= link_to "Logar", company_admin_session_path %> | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Cadatre-se',  new_company_admin_registration_path %></div>     
+<% end %>
+  <ul>
+    <% if company_admin_signed_in? %>
+      
+      
+    <% else %>
+      
+    <% end %>
+  </ul>
+</div>
+
+<div class="container">
+<%= yield %>
+</div>
 </body>
 </html>
+
+
+

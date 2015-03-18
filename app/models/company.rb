@@ -5,7 +5,9 @@ class Company < ActiveRecord::Base
   validates_presence_of :name, :email, :cnpj, :phone, :street_address, :number_address, :city, :neighborhood
 
   def total_rating()
-   company_ratings.calculate(:average, :rating).round(2)
+    unless  company_ratings.nil? do
+      company_ratings.calculate(:average, :rating).round(2)
+      end
+    end
   end
-
 end
