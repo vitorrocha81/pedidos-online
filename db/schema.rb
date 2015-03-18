@@ -46,10 +46,6 @@ ActiveRecord::Schema.define(version: 20150317225824) do
   add_index "company_admins", ["email"], name: "index_company_admins_on_email", unique: true
   add_index "company_admins", ["reset_password_token"], name: "index_company_admins_on_reset_password_token", unique: true
 
-  create_table "product_categories", force: :cascade do |t|
-    t.string   "name"
-  end
-
   create_table "company_ratings", force: :cascade do |t|
     t.integer  "rating"
     t.datetime "created_at", null: false
@@ -58,6 +54,12 @@ ActiveRecord::Schema.define(version: 20150317225824) do
   end
 
   add_index "company_ratings", ["company_id"], name: "index_company_ratings_on_company_id"
+
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
