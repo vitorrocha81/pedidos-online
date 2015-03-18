@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   def total_rating()
     unless  company_ratings.nil? do
       company_ratings.calculate(:average, :rating).round(2)
+      end
     end
   end
-end
 end
