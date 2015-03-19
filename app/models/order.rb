@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :order_itens
+  has_many :order_items
 
   def add_order_items(order)
     order.order_itens.each do |item|

@@ -3,3 +3,17 @@
 <div><p><%= @product.price %></p></div>
 <div><p><%= @product.description %></p></div>
 <%= @product.product_category.name %>
+
+<%= form_for @order_item, url: order_itens_create_path do |o|  %>
+  <%= hidden_field(:order_item, :product_id, value: @product.id) %>
+  <%= hidden_field(:order_item, :item_value, value: @product.price) %>
+  <div class="field">
+    <label>Quantidade:</label>
+    <%= o.text_field :quantyty %>
+  </div>
+
+
+  <p>
+    <button type="submit">Comprar</button>
+  </p>
+<% end %>

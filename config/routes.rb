@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
   get 'order_itens/new'
 
-  get 'order_itens/create'
+  post 'order_itens/create'
 
   get 'orders/index'
 
-  get 'orders/new'
-
-  get 'orders/create'
-
-  get 'orders/show'
+  resources :orders, only: [:show]
 
   resources :product_categories
 
