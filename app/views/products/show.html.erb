@@ -1,19 +1,19 @@
-<div> <%= image_tag @product.product_img.url(:medium) %></div>
-<div><h2><%= @product.title %><h2></div>
-<div><p><%= @product.price %></p></div>
-<div><p><%= @product.description %></p></div>
-<%= @product.product_category.name %>
+<div class="row">
+  <div class="col-md-4 col-sd-4">
+    <%= image_tag @product.product_img.url(:medium) %>
+  </div>
+   <div class="col-md-4 col-sd-4 form-group">
+    <h2><%= @product.title %><h2>
+    <p><%= @product.price %></p>
+    <p><%= @product.description %></p>
+    <p><%= link_to @product.product_category.name, product_category_path %></p>
 
 <%= form_for @order_item, url: order_itens_create_path do |o|  %>
   <%= hidden_field(:order_item, :product_id, value: @product.id) %>
   <%= hidden_field(:order_item, :item_value, value: @product.price) %>
-  <div class="field">
-    <label>Quantidade:</label>
+  <div class="form-control input-group col-xs-6">
+    <label for="Quandidade">Quantidade:</label>
     <%= o.text_field :quantyty %>
+    <button type="submit" class="btn btn-primary">Comprar</button>
   </div>
-
-
-  <p>
-    <button type="submit">Comprar</button>
-  </p>
 <% end %>
