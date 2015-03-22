@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-4 col-sd-4">
-    <%= image_tag @product.product_img.url(:medium) %>
+  <div class="col-md-3 col-sd-4">
+    <%= image_tag @product.product_img.url(:medium), class: "img-rounde img-responsive" %>
   </div>
    <div class="col-md-4 col-sd-4 form-group">
     <h2><%= @product.title %><h2>
