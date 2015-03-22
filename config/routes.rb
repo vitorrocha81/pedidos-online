@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'order_itens/new'
 
   post 'order_itens/create'
