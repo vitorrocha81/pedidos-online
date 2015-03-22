@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get 'orders/index'
   
-  get 'order/finish'
+  put 'orders/:id/finish', to: 'orders#finish', as: 'finish'
+
 
   resources :orders, only: [:show, :finish]
 

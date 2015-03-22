@@ -5,7 +5,7 @@
 <p>Valor: <%= o.item_value %> </p>
 <% end %>
 
-<%= form_for @order, url: order_path do |o|  %>
+<%= form_for @order, url: finish_path, method: :put do |o|  %>
   <%= hidden_field(:order, :status, value:"finished") %>
   <div>
     <button type="submit" class="btn btn-primary">Finalizar</button>
