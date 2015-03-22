@@ -6,7 +6,7 @@
        <% end %>
     </div>
     <div class="=col-md-6">   
-        <h2><%= link_to product.title, product %><h2>
+        <h2><%= link_to product.title, product_path(product) %><h2>
         <p><%= product.price %></p>
         <p><%= product.description %></p>
         <p><%= product.product_category.name %></p>
