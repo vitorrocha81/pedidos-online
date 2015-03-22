@@ -13,13 +13,15 @@
   <div>Olá: <%= current_company_admin.email %> || <%= link_to "Sair", destroy_company_admin_session_path, method: :delete %>
    | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Minha Empresa', current_company_admin.company %> | <%= link_to 'Cadastrar Produto', new_product_path %></div>
 <% else %>
-<div> <%= link_to "Logar", company_admin_session_path %> | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Cadatre-se',  new_company_admin_registration_path %></div>     
+  <div> <%= link_to "Entrar Como Empresa", company_admin_session_path %> | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Cadatre-se',  new_company_admin_registration_path %></div>     
 <% end %>
-  <ul>
-    <% if company_admin_signed_in? %>
-    <% else %>
-    <% end %>
-  </ul>
+
+<% if user_signed_in? %>
+Olá <%= current_user.email %>
+<% else %>
+  <%= link_to "Entrar", new_user_session_path  %>
+<% end %>
+
 </div>
 
 <div class="container-fluid banner">

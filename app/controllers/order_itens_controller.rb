@@ -17,7 +17,9 @@ class OrderItensController < ApplicationController
   end
 
   def retrieve_order
-    Order.new
+    order = Order.new
+    order.user = current_user
+    order
   end
 
 end
