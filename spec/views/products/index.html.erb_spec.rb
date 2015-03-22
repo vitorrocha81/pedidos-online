@@ -8,6 +8,6 @@ RSpec.describe "products/index.html.erb", type: :view do
     product.stub(:to_partial_path) {"products/product"}
     assign(:products, [product, product])
     render
-    expect(view).to render_template(partial: "_product", :count => 2)
+    expect(view).to render_template(partial: "product", :count => 2)
   end
 end

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   post 'order_itens/create'
 
   get 'orders/index'
+  
+  get 'order/finish'
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :finish]
 
   resources :product_categories
 
