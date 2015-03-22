@@ -16,22 +16,25 @@
   <div> <%= link_to "Entrar Como Empresa", company_admin_session_path %> | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Cadatre-se',  new_company_admin_registration_path %></div>     
 <% end %>
 
-<% if user_signed_in? %>
+<% if user_signed_in? && !company_admin_signed_in? %>
 Olá <%= current_user.email %>
 <% else %>
-  <%= link_to "Entrar", new_user_session_path  %>
+  <% unless company_admin_signed_in?%>
+    <%= link_to "Entrar como usuário", new_user_session_path  %>
+  <% end %>
 <% end %>
 
 </div>
 
 <div class="container-fluid banner">
-  <img class="responsive" src="http://img-asia.electrocomponents.com/apac/img/site/campaigns/helphub/screenshots/graphics/Online_Ordering.gif">
+  <img class="responsive" src="http://salgadosecia.com/img/pedidos_online.png">
 </div>
 
 
 <div class="container">
   <div class="row">
     <div class="col-md-2">
+      <%= render "shared/side" %>
     </div>
     <div class="col-md-8">
       <%= yield %>

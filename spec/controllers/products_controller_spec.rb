@@ -14,6 +14,18 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
+  describe "GET #category"  do
+    it "list product by category" do
+      category = ProductCategory.create(name: "teste")
+      p = Product.new(product)
+      p.company = empresa
+      p.product_category = category
+      p.save!
+      get :category, category_id: category.id
+      expect(assigns(:products)).to match_array([p])
+    end
+  end
+
   describe "POST #create" do
     it "create a new product" do
       admin = CompanyAdmin.create!(email: "123@eu.com", password: "12345678", company: empresa)

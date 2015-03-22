@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
     @order_item = OrderItem.new
   end
 
+  def category
+    @products = Product.where(product_category: params[:category_id])
+    render :index
+  end
+
   def new
     @product = Product.new
   end
