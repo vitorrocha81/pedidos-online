@@ -17,16 +17,24 @@
 <% end %>
   <ul>
     <% if company_admin_signed_in? %>
-      
-      
     <% else %>
-      
     <% end %>
   </ul>
 </div>
 
+<div class="container-fluid banner">
+  <img class="responsive" src="http://img-asia.electrocomponents.com/apac/img/site/campaigns/helphub/screenshots/graphics/Online_Ordering.gif">
+</div>
+
+
 <div class="container">
-<%= yield %>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <%= yield %>
+    </div>
+  </div>
 </div>
 </body>
 </html>
