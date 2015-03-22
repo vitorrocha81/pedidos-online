@@ -6,7 +6,7 @@
     <h2><%= @product.title %><h2>
     <p><%= @product.price %></p>
     <p><%= @product.description %></p>
-    <p><%= link_to @product.product_category.name, product_category_path %></p>
+    <p><%= link_to @product.product_category.name, @product.product_category %></p>
 
 <%= form_for @order_item, url: order_itens_create_path do |o|  %>
   <%= hidden_field(:order_item, :product_id, value: @product.id) %>
@@ -17,3 +17,4 @@
     <button type="submit" class="btn btn-primary">Comprar</button>
   </div>
 <% end %>
+
