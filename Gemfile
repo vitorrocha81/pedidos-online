@@ -22,7 +22,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Adicionadas - Vitor Rocha 
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'devise'
-gem 'therubyracer',  platforms: :ruby
 gem 'paperclip'
 
 # Use ActiveModel has_secure_password
@@ -43,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'therubyracer',  platforms: :ruby
 end
 group :production do
   gem 'pg'
