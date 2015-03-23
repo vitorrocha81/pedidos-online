@@ -17,6 +17,7 @@ class OrderItemsController < ApplicationController
       permit(:product_id, :item_value, :quantyty, :status)
   end
 
+  private
   def retrieve_order
     order = Order.new
     order.user = current_user
