@@ -23,6 +23,16 @@ describe OrderStatus do
     expect(OrderStatus::FINISHED).to eq "finished"
   end
 
+  it "should raise an exception when compared with anything else" do
+    expect {
+      puts OrderStatus::PAID == "anything"
+    }.to raise_exception
+
+    expect {
+      puts OrderStatus::PAID == Object.new
+    }.to raise_exception
+  end
+
   it "should get a order status description" do
     expect(OrderStatus::PENDING.description).to eq "pending"
     expect(OrderStatus::FINISHED.description).to eq "finished"
