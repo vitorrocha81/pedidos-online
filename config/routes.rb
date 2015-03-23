@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'order_itens/new'
+  get 'order_items/new'
 
-  post 'order_itens/create'
+  post 'order_items/create'
 
   get 'orders/index'
 

@@ -1,4 +1,4 @@
-class OrderItensController < ApplicationController
+class OrderItemsController < ApplicationController
   def new
   end
 
@@ -13,7 +13,8 @@ class OrderItensController < ApplicationController
   end
 
   def order_item_params
-    params.require(:order_item).permit(:product_id, :item_value, :quantyty, :status)
+    params.require(:order_item).
+      permit(:product_id, :item_value, :quantyty, :status)
   end
 
   def retrieve_order
