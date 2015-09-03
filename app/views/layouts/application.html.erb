@@ -13,7 +13,7 @@
   <div>Olá: <%= current_company_admin.email %> || <%= link_to "Sair", destroy_company_admin_session_path, method: :delete %>
    | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Minha Empresa', current_company_admin.company %> | <%= link_to 'Cadastrar Produto', new_product_path %></div>
 <% else %>
-  <div> <%= link_to "Entrar Como Empresa", company_admin_session_path %> | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Cadatre-se',  new_company_admin_registration_path %></div>     
+  <div> <%= link_to "Entrar Como Empresa", company_admin_session_path %> | <%= link_to 'Página inicial', root_path %> | <%= link_to 'Cadastre-se',  new_company_admin_registration_path %></div>     
 <% end %>
 
 <% if user_signed_in? && !company_admin_signed_in? %>
@@ -26,15 +26,10 @@ Olá <%= current_user.email %>
 
 </div>
 
-<div class="container-fluid banner">
-  <img class="responsive" src="http://salgadosecia.com/img/pedidos_online.png">
-</div>
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <%= render "shared/side" %>
+      Slide:<%= render 'slide' %>
     </div>
     <div class="col-md-8">
       <%= yield %>
